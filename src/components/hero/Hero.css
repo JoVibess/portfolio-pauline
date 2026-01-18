@@ -1,3 +1,4 @@
+
 /* Conteneur hero */
 .hero-section {
   position: relative;
@@ -18,9 +19,9 @@
   transform: translateX(-50%);
   margin: 0;
   padding: 0;
-  font-size: 38vw;            /* taille proportionnelle à la largeur */
+  font-size: 24vw;            /* taille proportionnelle à la largeur */
   font-weight: 600;           /* Teko semi-gras */
-  font-family: 'Teko', sans-serif;
+  font-family: "Asimovian", sans-serif;
   line-height: 1;
   color: #fff;
   white-space: nowrap;
@@ -64,7 +65,7 @@
 /* Responsive pour les écrans étroits */
 @media (max-width: 767px) {
   .hero-word {
-    font-size: 40vw;
+    font-size: 22vw;
     top: 22vh;
     transform: translateX(-50.5%);
   }

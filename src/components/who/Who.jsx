@@ -4,12 +4,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./Who.css";
 import xai from "../../assets/xai.svg";
 import robot from "../../assets/robot.png";
-import pasta from "../../assets/pasta.png";
-import pizza from "../../assets/pizza.png";
+import cervin from "../../assets/cervin.webp";
+import tronc from "../../assets/tronc.webp";
 import openai from "../../assets/openai.svg";
-import react from "../../assets/react.png";
-import vite from "../../assets/vite.png";
-import liberty from "../../assets/liberty.svg";
+import troisDS from "../../assets/3ds-max.png";
+import autocad from "../../assets/autocad.png";
+import chamois from "../../assets/chamois.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 if (ScrollTrigger.isTouch) {
@@ -33,9 +33,9 @@ export default function Who() {
 
     const PALETTE = [
       "#010101",
-      "#ff4e47",
-      "#9B5DE5",
-      "#00C2FF",
+      "#BA915B",
+      "#8393D6",
+      "#00A6D4",
       "#00D68F",
       "#FFD166",
     ];
@@ -150,47 +150,46 @@ export default function Who() {
       );
     }
 
- // --- Transition fluide Who -> Portfolio (#010101)
-const portfolio = document.querySelector(".portfolio");
+    // --- Transition fluide Who -> Portfolio (#010101)
+    const portfolio = document.querySelector(".portfolio");
 
-if (portfolio) {
-  // Portfolio : entre en correspondant à la couleur actuelle de Who et fond vers #010101
-  gsap.fromTo(
-    portfolio,
-    { backgroundColor: () => getComputedStyle(wrap).backgroundColor },
-    {
-      backgroundColor: "#010101",
-      ease: "none",
-      immediateRender: false,
-      scrollTrigger: {
-        trigger: portfolio,
-        start: "top bottom", // dès que le portfolio est sous le viewport
-        end: "top 40%",      // fond pendant la montée
-        scrub: true,
-        invalidateOnRefresh: true,
-      },
+    if (portfolio) {
+      // Portfolio : entre en correspondant à la couleur actuelle de Who et fond vers #010101
+      gsap.fromTo(
+        portfolio,
+        { backgroundColor: () => getComputedStyle(wrap).backgroundColor },
+        {
+          backgroundColor: "#010101",
+          ease: "none",
+          immediateRender: false,
+          scrollTrigger: {
+            trigger: portfolio,
+            start: "top bottom", // dès que le portfolio est sous le viewport
+            end: "top 40%", // fond pendant la montée
+            scrub: true,
+            invalidateOnRefresh: true,
+          },
+        }
+      );
+
+      // Who : en sortant, fond vers le même #010101 (pour que les bords coïncident)
+      gsap.fromTo(
+        wrap,
+        { backgroundColor: () => getComputedStyle(wrap).backgroundColor },
+        {
+          backgroundColor: "#010101",
+          ease: "none",
+          immediateRender: false,
+          scrollTrigger: {
+            trigger: portfolio,
+            start: "top bottom",
+            end: "top 40%",
+            scrub: true,
+            invalidateOnRefresh: true,
+          },
+        }
+      );
     }
-  );
-
-  // Who : en sortant, fond vers le même #010101 (pour que les bords coïncident)
-  gsap.fromTo(
-    wrap,
-    { backgroundColor: () => getComputedStyle(wrap).backgroundColor },
-    {
-      backgroundColor: "#010101",
-      ease: "none",
-      immediateRender: false,
-      scrollTrigger: {
-        trigger: portfolio,
-        start: "top bottom",
-        end: "top 40%",
-        scrub: true,
-        invalidateOnRefresh: true,
-      },
-    }
-  );
-}
-
 
     // ====== ANIMATIONS DES STICKERS ======
     const mm = gsap.matchMedia();
@@ -376,7 +375,7 @@ if (portfolio) {
           ease: "none",
           immediateRender: false,
           scrollTrigger: {
-            id: "p3-vertical-pizza",
+            id: "p3-vertical-tronc",
             start: vertStart,
             end: vertEnd,
             scrub: true,
@@ -391,7 +390,7 @@ if (portfolio) {
           ease: "none",
           immediateRender: false,
           scrollTrigger: {
-            id: "p3-vertical-pasta",
+            id: "p3-vertical-cervin",
             start: vertStart,
             end: vertEnd,
             scrub: true,
@@ -406,7 +405,7 @@ if (portfolio) {
           ease: "none",
           immediateRender: false,
           scrollTrigger: {
-            id: "p3-vertical-liberty",
+            id: "p3-vertical-chamois",
             start: vertStart,
             end: vertEnd,
             scrub: true,
@@ -455,9 +454,9 @@ if (portfolio) {
     return () => {
       stIntro.kill();
       tweenH.scrollTrigger?.kill();
-      ScrollTrigger.getById("p3-vertical-pizza")?.kill();
-      ScrollTrigger.getById("p3-vertical-pasta")?.kill();
-      ScrollTrigger.getById("p3-vertical-liberty")?.kill();
+      ScrollTrigger.getById("p3-vertical-tronc")?.kill();
+      ScrollTrigger.getById("p3-vertical-cervin")?.kill();
+      ScrollTrigger.getById("p3-vertical-chamois")?.kill();
       ro.disconnect();
       mm.revert();
     };
@@ -493,10 +492,11 @@ if (portfolio) {
           {/* P1 — xAI + tête de robot */}
           <section className="panel p1">
             <div className="panel-copy">
-              <h2 className="panel-hl">Half human, half algorithm.</h2>
+              <h2 className="panel-hl">Entre concept et réalité.</h2>
               <p className="panel-sl">
-                Spent a year at <span className="brand">xAI</span> teaching
-                machines to behave. Kind of.
+                Architecte d’intérieur, je crée des espaces qui racontent une{" "}
+                <span className="brand">histoire</span> et accompagnent les
+                usages.
               </p>
             </div>
             <div className="stickers">
@@ -520,24 +520,24 @@ if (portfolio) {
           {/* P2 — logos de la stack */}
           <section className="panel p2">
             <div className="panel-copy">
-              <h2 className="panel-hl">Structured chaos.</h2>
+              <h2 className="panel-hl">De l’intuition au dessin.</h2>
               <p className="panel-sl">
-                From prototype to production — web, APIs, and AI —
-                stack-agnostic by design.
+                Plans, élévations, lumière, mobilier sur mesure, chaque projet
+                avance avec précision.
               </p>
             </div>
             <div className="stickers">
               <img
                 className="sticker s1"
-                alt="React"
-                src={react}
+                alt="3ds-max"
+                src={troisDS}
                 loading="lazy"
                 decoding="async"
               />
               <img
                 className="sticker s2"
-                alt="Vite"
-                src={vite}
+                alt="autocad"
+                src={autocad}
                 loading="lazy"
                 decoding="async"
               />
@@ -554,30 +554,31 @@ if (portfolio) {
           {/* P3 — Naples + NYC */}
           <section className="panel p3">
             <div className="panel-copy">
-              <h2 className="panel-hl">Born in Italy, built in New York.</h2>
+              <h2 className="panel-hl">Des Alpes aux projets.</h2>
               <p className="panel-sl">
-                I believe in good ideas, clean code, and better pasta.
+                Un regard nourri par les montagnes, les matériaux bruts et le
+                goût du détail.
               </p>
             </div>
             <div className="stickers">
               <img
                 className="sticker s1"
-                alt="Pizza"
-                src={pizza}
+                alt="tronc"
+                src={tronc}
                 loading="lazy"
                 decoding="async"
               />
               <img
                 className="sticker s2"
-                alt="Pasta"
-                src={pasta}
+                alt="cervin"
+                src={cervin}
                 loading="lazy"
                 decoding="async"
               />
               <img
                 className="sticker s3"
-                alt="Statue of Liberty"
-                src={liberty}
+                alt="Photo of a chamois"
+                src={chamois}
                 loading="lazy"
                 decoding="async"
               />

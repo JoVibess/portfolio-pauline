@@ -372,10 +372,9 @@ export default function Portfolio() {
       {/* Intro nel normale flusso, con margini gestiti via CSS */}
       <div className="pf-intro-wrap">
         <div className="pf-intro">
-          <h2 className="pf-ih">Selected builds.</h2>
+          <h2 className="pf-ih">Sélection de projets</h2>
           <p className="pf-id">
-            A small slice of shipped work—production-first, privacy-safe,
-            continuously evolving.
+          Là où usage, matière et lumière se rencontrent.
           </p>
         </div>
       </div>
