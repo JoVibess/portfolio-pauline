@@ -108,7 +108,7 @@ const PROJECTS = [
     id: 5,
     title: "Hall d’entrée",
     brandAsTitle: false,
-    copy: "Lors de mon stage chez bulthaup, j’ai participé à un projet d’aménagement global d’une maison. Ma mission portait sur l’agencement de l’entrée, avec pour objectif de créer une séparation visuelle entre l’entrée et le séjour, auparavant directement visibles depuis la porte d’entrée. Accompagné par mon maître de stage, nous avons conçu une cloison intégrant deux types de meubles : des rangements fonctionnels côté entrée et un meuble à étagères décoratif et pratique côté séjour. Ma contribution a consisté à réaliser les plans et les élévations de cette cloison ainsi que des deux meubles attenants.",
+    copy: "Lors de mon stage chez bulthaup, j’ai participé à un projet d’aménagement d’une maison en travaillant sur l’agencement de l’entrée. L’objectif était de créer une séparation visuelle avec le séjour grâce à une cloison intégrant des rangements côté entrée et des étagères côté séjour. J’ai réalisé les plans et les élévations de l’ensemble.",
     color: "#BFA38A",
     repo: portfolioPdf,
     demo: null,
