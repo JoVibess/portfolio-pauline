@@ -129,7 +129,7 @@
 }
 .pf-brand {
   display: block;
-  height: clamp(28px, 3.6vw, 40px);
+  height: clamp(2.5rem, 0.1145rem + 7.6336vw, 5rem);
   inline-size: auto;
   opacity: 1;
 }
@@ -140,7 +140,7 @@
 /* Body */
 .pf-copy {
   margin: 18px 0 24px;
-  max-width: 62ch;
+  width: 80%;
   font-size: clamp(16px, 2.2vw, 18px);
   line-height: 1.45;
   opacity: 0.96;
@@ -732,7 +732,6 @@
   .pf-copy { margin: 12px 0 14px; }          /* prima 18px 0 24px */
   .pf-demo .bd-track { inset: 10px; gap: 10px; } /* prima 12px / 12px */
 
-  .pf-brand { width: 34px; }
   .pf-strip { grid-template-columns: repeat(3, 1fr); }
 }
 

@@ -1,8 +1,8 @@
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Home from "./Home.jsx";
-import Privacy from "./components/legal/Privacy.jsx";
-import Cookies from "./components/legal/Cookies.jsx";
+// import Privacy from "./components/legal/Privacy.jsx";
+// import Cookies from "./components/legal/Cookies.jsx";
 import { trackPageview } from "./lib/ga.js";
 
 function RouteTracker() {
@@ -22,8 +22,8 @@ export default function App() {
       <RouteTracker />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/privacy" element={<Privacy />} />
-        <Route path="/cookies" element={<Cookies />} />
+        {/* <Route path="/privacy" element={<Privacy />} />
+        <Route path="/cookies" element={<Cookies />} /> */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>

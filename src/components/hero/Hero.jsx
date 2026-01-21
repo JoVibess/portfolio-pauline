@@ -28,7 +28,7 @@ export default function Hero() {
   }, []);
 
   // Génère les lettres du titre
-  const heading = 'PAULINE';
+  const heading = 'Pauline';
   const letters = heading.split('').map((char, index) => (
     <span key={index} className="letter" style={{ '--i': index }}>
       {char}

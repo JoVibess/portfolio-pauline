@@ -5,7 +5,8 @@ import "./Footer.css";
 import { GA_ID, updateAnalyticsConsent } from "../../lib/ga.js";
 
 /* ---------- Utils ---------- */
-function useNYTime() {
+
+function useFRTime() {
   const [now, setNow] = useState(() => new Date());
   useEffect(() => {
     const id = setInterval(() => setNow(new Date()), 1000);
@@ -13,11 +14,11 @@ function useNYTime() {
   }, []);
   const fmt = useMemo(
     () =>
-      new Intl.DateTimeFormat("en-US", {
+      new Intl.DateTimeFormat("fr-FR", {
         hour: "2-digit",
         minute: "2-digit",
-        hour12: true,
-        timeZone: "America/New_York",
+        hour12: false,
+        timeZone: "Europe/Paris",
       }),
     []
   );
@@ -113,8 +114,8 @@ function Eyes() {
           // Desktop: SOLO quando davvero strabici
           setMsgSafe(
             opposing && between && someDeflection
-              ? "You're making me cross-eyed."
-              : "I'm watching you."
+              ? "Vous me faites loucher."
+              : "Je vous observe."
           );
         } else {
           // Mobile: left/right + cross-eyed
@@ -257,7 +258,7 @@ function Eyes() {
   );
 }
 
-function ConsentDialog({ open, onClose }) {
+/* function ConsentDialog({ open, onClose }) {
   const [analytics, setAnalytics] = useState(
     () => localStorage.getItem("consent.analytics") !== "denied" // default ON
   );
@@ -298,28 +299,28 @@ function ConsentDialog({ open, onClose }) {
       </form>
     </dialog>
   );
-}
+} */
 
 /* ---------- Footer ---------- */
 export default function Footer() {
-  const nyTime = useNYTime();
+  const frTime = useFRTime();
   const year = new Date().getFullYear();
-  const [consentOpen, setConsentOpen] = useState(false);
+  // const [consentOpen, setConsentOpen] = useState(false);
 
   useEffect(() => {
     const footer = document.getElementById("site-footer");
     if (!footer) return;
 
-    const CLICK_VH = 30; // quando >= 30vh rivelati, i link diventano cliccabili
+    const CLICK_VH = 30; // liens cliquables à partir de 30vh révélés
 
     const update = () => {
       const doc = document.documentElement;
       const vh = window.innerHeight;
 
-      // quanto manca al fondo
+      // distance restante avant le bas de page
       const remaining = doc.scrollHeight - (window.scrollY + vh);
 
-      // quanta parte del footer rivelare (0 → 100vh)
+      // reveal en vh (0 → 100vh)
       const revealVH = Math.max(0, Math.min(100, 100 - (remaining / vh) * 100));
 
       footer.style.setProperty("--reveal", `${revealVH}vh`);
@@ -329,33 +330,32 @@ export default function Footer() {
     update();
     window.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
+
     return () => {
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
   }, []);
 
+
   return (
     <footer className="site-footer" id="site-footer">
       <div className="footer-inner container">
         <div className="cta-left">
           <h2 className="cta-title">
-            Let’s make your next thing{" "}
-            <span className="underline">unskippable</span>.
+          Faisons connaissance dès{" "}
+            <span className="underline">maintenant</span>.
           </h2>
-          <p className="meta">Based in New York — Working worldwide</p>
+          <p className="meta">Haute-Savoie — France</p>
         </div>
 
         <div className="cta-right">
-          <a
-            className="email-cta"
-            href="mailto:paulinelechleider@gmail.com"
-          >
-            <span className="arrow">→</span> Pitch your idea
+          <a className="email-cta" href="mailto:paulinelechleider@gmail.com">
+            <span className="arrow">→</span> Contact
           </a>
           <div className="time">
-            <span className="lab">Local time</span>
-            <span className="val">{nyTime}</span>
+            <span className="lab">Heure locale</span>
+            <span className="val">{frTime}</span>
           </div>
         </div>
 
@@ -373,10 +373,9 @@ export default function Footer() {
 
         <div className="legal">
           <span className="copyright">© {year} Pauline Lechleider</span>
-          <span className="sep sep-desktop" aria-hidden="true">
+          {/* <span className="sep sep-desktop" aria-hidden="true">
             |
           </span>{" "}
-          {/* NEW */}
           <nav className="legal-links" aria-label="Legal">
             <Link to="/privacy" className="legal-link">
               Privacy
@@ -396,12 +395,12 @@ export default function Footer() {
             >
               Manage cookies
             </button>
-          </nav>
+          </nav> */}
         </div>
-        <ConsentDialog
+        {/* <ConsentDialog
           open={consentOpen}
           onClose={() => setConsentOpen(false)}
-        />
+        /> */}
 
         <Eyes />
       </div>

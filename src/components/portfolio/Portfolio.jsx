@@ -2,16 +2,26 @@ import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./Portfolio.css";
-import basicLogo from "../../assets/basic.svg";
-import costvistaLogo from "../../assets/costvista.svg";
-import panoramaLogo from "../../assets/panorama.svg";
-import basic1 from "../../assets/basic1.png";
-import basic2 from "../../assets/basic2.png";
-import basic3 from "../../assets/basic3.png";
-import basic4 from "../../assets/basic4.png";
-import panorama1 from "../../assets/panorama1.png";
-import panorama2 from "../../assets/panorama2.png";
-import panorama3 from "../../assets/panorama3.png";
+import basicLogo from "../../assets/cern-logo.png";
+import cern1 from "../../assets/cern-a.webp";
+import cern2 from "../../assets/cern-b.webp";
+import cern3 from "../../assets/cern-c.webp";
+import cern4 from "../../assets/cern-d.webp";
+import chambre1 from "../../assets/chambre-a.webp";
+import chambre2 from "../../assets/chambre-b.webp";
+import chambre3 from "../../assets/chambre-c.webp";
+import chambre4 from "../../assets/chambre-d.webp";
+import chambre5 from "../../assets/chambre-e.webp";
+import bureau1 from "../../assets/bureau-a.webp";
+import bureau2 from "../../assets/bureau-b.webp";
+import boulangerieA from "../../assets/boulangerie-a.webp";
+import boulangerieB from "../../assets/boulangerie-b.webp";
+import boulangerieC from "../../assets/boulangerie-c.webp";
+import boulangerieD from "../../assets/boulangerie-d.webp";
+import hallA from "../../assets/hall-a.webp";
+import hallB from "../../assets/hall-b.webp";
+import hallC from "../../assets/hall-c.webp";
+import portfolioPdf from "../../assets/portfolio.pdf";
 
 gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.config({ ignoreMobileResize: true });
@@ -19,13 +29,18 @@ ScrollTrigger.config({ ignoreMobileResize: true });
 /* ---------- ICÔNES ---------- */
 const RepoIcon = () => (
   <svg
-    aria-hidden="true"
     width="16"
     height="16"
-    viewBox="0 0 24 24"
-    fill="currentColor"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    <path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58l-.02-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.39-1.33-1.76-1.33-1.76-1.09-.74.09-.73.09-.73 1.2.08 1.83 1.23 1.83 1.23 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.77-1.6-2.67-.3-5.48-1.34-5.48-5.95 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.16 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.64.24 2.86.12 3.16.77.84 1.23 1.91 1.23 3.22 0 4.62-2.82 5.65-5.5 5.95.43.37.82 1.1.82 2.23l-.01 3.3c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z" />
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M0.44738 15.3001C-0.67262 13.9401 0.51838 12.3201 1.73738 11.6301C2.41438 11.2491 3.25738 10.9841 4.16738 10.7341C3.89658 11.25 3.5978 11.7508 3.27238 12.2341C3.00465 12.3416 2.74382 12.4655 2.49138 12.6051C1.84938 12.9671 0.99138 13.6001 1.51838 14.3951C2.03138 15.1691 2.85838 14.3181 3.24838 13.8691C3.74638 13.3611 4.30838 12.5591 4.80838 11.6791C5.33738 10.7491 5.81838 9.69911 6.27838 8.58911C6.69338 7.58911 7.06238 6.55911 7.33838 5.59911C7.61838 4.63911 7.80738 3.75011 7.87738 3.00011C7.93438 2.37711 7.90738 1.46011 7.08738 1.58011C6.26738 1.70011 6.27738 2.66011 6.47238 3.41011C6.52971 3.63345 6.60171 3.86511 6.68838 4.10511C6.62705 4.39245 6.55271 4.69578 6.46538 5.01511C6.39205 5.27911 6.31205 5.54945 6.22538 5.82611C5.87251 5.13742 5.5933 4.41341 5.39238 3.66611C5.04238 2.31611 5.02738 0.436112 6.84238 0.0461121C8.65738 -0.343888 9.11238 1.71611 8.99238 3.03611C8.89238 4.10611 8.59538 5.41611 8.14538 6.76611C8.43338 7.24311 8.74738 7.72111 9.08038 8.18611C9.43038 8.67711 9.89038 9.17911 10.2704 9.61611C11.6104 9.51611 12.9304 9.58211 13.9204 9.76911C15.2804 10.0261 16.5104 10.8791 15.7904 12.5091C15.0694 14.1391 13.2904 13.8991 12.1104 13.1401C11.1262 12.504 10.2628 11.6981 9.56038 10.7601H9.55738C8.81151 9.64155 8.12716 8.48316 7.50738 7.29011C7.21138 8.18311 6.77738 9.38011 6.40738 10.1801C6.88038 10.0701 7.37738 9.98011 7.86738 9.90511C8.06838 10.2431 8.26038 10.5731 8.45738 10.8931C8.30071 10.9164 8.13738 10.9424 7.96738 10.9711C7.35205 11.0758 6.74871 11.2011 6.15738 11.3471C6.00805 11.6338 5.86338 11.9164 5.72338 12.1951C5.22438 13.1831 4.76438 14.0951 4.19338 14.7451C3.28038 15.7851 1.57338 16.6351 0.45338 15.2751L0.44738 15.3001ZM10.9474 10.6201C11.5464 11.2321 12.1074 11.7001 12.6574 12.0601C13.3254 12.4901 14.0974 12.7411 14.4574 11.9901C14.8244 11.2371 14.1464 10.8601 13.4374 10.7201C12.7384 10.5871 11.9074 10.5811 10.9374 10.6161L10.9474 10.6201Z"
+      fill="white"
+    />
   </svg>
 );
 
@@ -52,44 +67,51 @@ const PROJECTS = [
   {
     id: 1,
     title: "Stand du CERN",
-    brand: basicLogo, // << nouveau
-    brandAlt: "BASIC", // << nouveau (utilisé si le logo remplace le titre)
-    brandAsTitle: false, // << garder false : titre + logo ; mettre true pour "logo seul"
+    brand: basicLogo,
+    brandAlt: "CERN",
+    brandAsTitle: false,
     copy: "Ce projet réalisé en binôme a pour objectif de faire découvrir le CERN au-delà de son image mystérieuse. Le stand met en avant la collaboration internationale et la diversité des savoirs qui le composent. Les espaces circulaires entrelacés symbolisent les différentes orientations du CERN et leurs liens. La circulation immersive invite les visiteurs à explorer le stand et à découvrir de nouvelles perspectives.",
-    color: "#3b2ecc",
-    repo: "https://github.com/marphco/basic-adv",
-    demo: "https://basicadv.com",
+    color: "#071A40",
+    repo: portfolioPdf,
+    demo: null,
   },
   {
     id: 2,
-    title: "RL Question Generator",
-    copy: "Drafts tailored onboarding questions for new clients and gets better with feedback. Starts from a brief and product docs, proposes a structured set grouped by topic/priority, then updates a reward model from thumbs-up/down so the next batch is clearer, less redundant, and better scoped.",
-    color: "#ff6a00",
-    repo: "https://github.com/marphco/rl-question-generator",
+    title: "Chambre parentale",
+    copy: "Ce projet consiste en la conception d’une chambre parentale avec un dressing et une tête de lit sur mesure. Inspiré du style cottage anglais, la chambre est pensée pour un jeune couple d’entrepeneur britannique. Le meuble du dressing se divise en deux espaces distincts, l’un pour Madame, et l’autre pour Monsieur. Ce dressing allie fonctionnalité et organisation, tout en s’intégrant harmonieusement dans une ambiance chaleureuse et intemporelle.",
+    color: "#4B69A6",
+    repo: portfolioPdf,
     demo: null,
   },
 
   {
     id: 3,
-    title: "CostVista",
-    brand: costvistaLogo,
-    brandAlt: "CostVista",
+    title: "Desk d’accueil",
     brandAsTitle: false,
-    copy: "Turns CMS payer files into readable comparisons. Search by CPT/HCPCS, filter by payer/plan, see medians & ranges, and export clean CSVs. No PHI.",
-    color: "#ff3b30",
-    repo: "https://github.com/marphco/costvista",
-    demo: "https://www.costvista.com",
+    copy: "Pour ce projet, nous avions le choix de choisir une marque et de créer son desk d’accueil pour leur boutique. La marque que j’ai décidé de représenter est Maje. C’est une marque raffinée et élégante pour les femmes. Le desk est positionné au coeur de la boutique avec 2 espaces de travail pour être le point central permettant d’être accessible de n’importe quel endroit où nous nous trouvons. ",
+    color: "#402B12",
+    repo: portfolioPdf,
+    demo: null,
   },
+
   {
     id: 4,
-    title: "Panorama",
-    brand: panoramaLogo,
-    brandAlt: "Panorama",
+    title: "Boulangerie Tea-room",
     brandAsTitle: false,
-    copy: "Immersive 3D gallery to wander high-res masterpieces from The Met, the Uffizi & more. Smooth room-to-room nav, object-level zoom, and clean metadata overlays.",
-    color: "#494949ff",
-    repo: "https://github.com/marphco/virtual-art-gallery",
-    demo: "https://panorama-virtual.vercel.app/",
+    copy: "Mon concept est autour du thé, je suis parti de l’origine du thé, lorsqu’une feuille tombe dans de l’eau chaude. Mon but était de faire un lieu agréable et permettant de se détendre avec une tasse de thé afin de faire une parenthèse dans sa journée. ",
+    color: "#BF7B3F",
+    repo: portfolioPdf,
+    demo: null,
+  },
+
+  {
+    id: 5,
+    title: "Hall d’entrée",
+    brandAsTitle: false,
+    copy: "Lors de mon stage chez bulthaup, j’ai participé à un projet d’aménagement global d’une maison. Ma mission portait sur l’agencement de l’entrée, avec pour objectif de créer une séparation visuelle entre l’entrée et le séjour, auparavant directement visibles depuis la porte d’entrée. Accompagné par mon maître de stage, nous avons conçu une cloison intégrant deux types de meubles : des rangements fonctionnels côté entrée et un meuble à étagères décoratif et pratique côté séjour. Ma contribution a consisté à réaliser les plans et les élévations de cette cloison ainsi que des deux meubles attenants.",
+    color: "#BFA38A",
+    repo: portfolioPdf,
+    demo: null,
   },
 ];
 
@@ -326,7 +348,7 @@ export default function Portfolio() {
                 t(i)
               );
 
-              tl.to(card, { '--shadow-o': 1, duration: SEG * 0.45 }, t(i));
+              tl.to(card, { "--shadow-o": 1, duration: SEG * 0.45 }, t(i));
 
               tl.to(
                 card,
@@ -374,7 +396,7 @@ export default function Portfolio() {
         <div className="pf-intro">
           <h2 className="pf-ih">Sélection de projets</h2>
           <p className="pf-id">
-          Là où usage, matière et lumière se rencontrent.
+            Là où usage, matière et lumière se rencontrent.
           </p>
         </div>
       </div>
@@ -416,7 +438,7 @@ export default function Portfolio() {
                   aria-label={`${p.title} repository`}
                 >
                   <RepoIcon />
-                  <span>Repo</span>
+                  <span>Portfolio</span>
                 </a>
               )}
               {p.demo && (
@@ -441,32 +463,32 @@ export default function Portfolio() {
                 <div className="bd-track">
                   <div className="bd-panel">
                     <img
-                      src={basic1}
-                      alt="Hero orizzontale"
+                      src={cern1}
+                      alt="cern"
                       loading="lazy"
                       decoding="async"
                     />
                   </div>
                   <div className="bd-panel">
                     <img
-                      src={basic2}
-                      alt="Sezione con motion"
+                      src={cern2}
+                      alt="cern"
                       loading="lazy"
                       decoding="async"
                     />
                   </div>
                   <div className="bd-panel">
                     <img
-                      src={basic3}
-                      alt="Dashboard con brief"
+                      src={cern3}
+                      alt="cern"
                       loading="lazy"
                       decoding="async"
                     />
                   </div>
                   <div className="bd-panel">
                     <img
-                      src={basic4}
-                      alt="Dashboard con brief"
+                      src={cern4}
+                      alt="cern"
                       loading="lazy"
                       decoding="async"
                     />
@@ -476,241 +498,79 @@ export default function Portfolio() {
             )}
             {p.id === 2 && (
               <div
-                className="pf-demo pf-demo--rl"
-                data-demo="rl"
-                data-speed="85"
-              >
-                <div className="bd-track">
-                  {/* Panel 1 — Brief -> Topics */}
-                  <div className="bd-panel rl-brief">
-                    <div className="rl-card">
-                      <h4>Brief</h4>
-                      <p>
-                        “B2B SaaS onboarding; need discovery & scope in 20m.”
-                      </p>
-                      <div className="rl-chips">
-                        <span className="chip">Goal: discovery</span>
-                        <span className="chip">Audience: admins</span>
-                        <span className="chip">Scope: v1</span>
-                      </div>
-                      <button className="rl-cta">Generate</button>
-                    </div>
-                    <div className="rl-card">
-                      <h4>Topics</h4>
-                      <ul className="rl-topics">
-                        <li>Context & constraints</li>
-                        <li>Users & permissions</li>
-                        <li>Success metrics</li>
-                        <li>Risks & blockers</li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  {/* Panel 2 — Draft + feedback */}
-                  <div className="bd-panel rl-feedback">
-                    <div className="rl-list">
-                      <h4>Draft questions</h4>
-                      <ul>
-                        <li>
-                          <span>What problem are we solving right now?</span>
-                          <div className="thumbs">
-                            <button className="up" aria-label="thumb up">
-                              👍
-                            </button>
-                            <button aria-label="thumb down">👎</button>
-                          </div>
-                        </li>
-                        <li>
-                          <span>Who signs off & what’s the deadline?</span>
-                          <div className="thumbs">
-                            <button className="up" aria-label="thumb up">
-                              👍
-                            </button>
-                            <button aria-label="thumb down">👎</button>
-                          </div>
-                        </li>
-                        <li>
-                          <span>Any PII/PHI or compliance limits?</span>
-                          <div className="thumbs">
-                            <button className="up" aria-label="thumb up">
-                              👍
-                            </button>
-                            <button aria-label="thumb down">👎</button>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="rl-toast">Feedback saved ✓</div>
-                  </div>
-
-                  {/* Panel 3 — Metrics */}
-                  <div className="bd-panel rl-metrics">
-                    <div className="rl-graph">
-                      <svg
-                        viewBox="0 0 120 64"
-                        preserveAspectRatio="none"
-                        aria-hidden="true"
-                      >
-                        <polyline
-                          className="line"
-                          points="0,58 15,56 30,52 45,49 60,44 75,36 90,28 105,20 120,14"
-                        />
-                        <line
-                          x1="0"
-                          y1="58"
-                          x2="120"
-                          y2="58"
-                          className="axis"
-                        />
-                        <line x1="0" y1="6" x2="0" y2="58" className="axis" />
-                      </svg>
-                      <div className="legend">
-                        <span className="dot"></span>Reward
-                      </div>
-                    </div>
-                    <p className="rl-caption">
-                      Reward ↑ · redundancy ↓ across batches.
-                    </p>
-                  </div>
+              className="pf-demo pf-demo--basic"
+              data-demo="basic"
+              data-speed="90"
+            >
+              <div className="bd-track">
+                <div className="bd-panel">
+                  <img
+                    src={chambre1}
+                    alt="chambre"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div className="bd-panel">
+                  <img
+                    src={chambre2}
+                    alt="chambre"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div className="bd-panel">
+                  <img
+                    src={chambre4}
+                    alt="chambre"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div className="bd-panel">
+                  <img
+                    src={chambre3}
+                    alt="chambre"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div className="bd-panel">
+                  <img
+                    src={chambre5}
+                    alt="chambre"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </div>
+            </div>
             )}
             {p.id === 3 && (
               <div
-                className="pf-demo pf-demo--cost"
-                data-demo="cost"
-                data-speed="82"
-              >
-                <div className="bd-track">
-                  {/* Panel 1 — Ingest */}
-                  <div className="bd-panel cv-ingest">
-                    <div className="cv-card">
-                      <h4>Import payer files</h4>
-                      <p className="sub">
-                        .jsonl / .csv — CMS price transparency
-                      </p>
-                      <div className="dropzone">Drop files here</div>
-                      <div className="cv-chips">
-                        <span className="chip ok">Validated ✓</span>
-                        <span className="chip">3 payers</span>
-                        <span className="chip">12 plans</span>
-                      </div>
-                    </div>
-                    <div className="cv-card">
-                      <h4>Normalize</h4>
-                      <ul className="bullets">
-                        <li>Map fields (payer → unified schema)</li>
-                        <li>De-duplicate procedures</li>
-                        <li>Aggregate by provider</li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  {/* Panel 2 — Search & filters */}
-                  <div className="bd-panel cv-search">
-                    <div className="cv-form">
-                      <div className="field">
-                        <label>Procedure</label>
-                        <input defaultValue="CPT 29888 — Knee arthroscopy" />
-                      </div>
-                      <div className="row">
-                        <div className="field">
-                          <label>Payer</label>
-                          <select defaultValue="Aetna">
-                            <option>Aetna</option>
-                            <option>BCBS</option>
-                            <option>United</option>
-                          </select>
-                        </div>
-                        <div className="field">
-                          <label>Plan</label>
-                          <select defaultValue="PPO Silver">
-                            <option>PPO Silver</option>
-                            <option>HMO Bronze</option>
-                            <option>EPO Gold</option>
-                          </select>
-                        </div>
-                        <div className="field">
-                          <label>Type</label>
-                          <select defaultValue="Negotiated">
-                            <option>Negotiated</option>
-                            <option>Cash</option>
-                          </select>
-                        </div>
-                      </div>
-                      <button className="cv-cta">Compare</button>
-                    </div>
-
-                    <div className="kpis">
-                      <div className="kpi">
-                        <span className="lab">Median</span>
-                        <span className="val">$2,940</span>
-                      </div>
-                      <div className="kpi">
-                        <span className="lab">P25–P75</span>
-                        <span className="val">$2,210–$3,560</span>
-                      </div>
-                      <div className="kpi">
-                        <span className="lab">Providers</span>
-                        <span className="val">18</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Panel 3 — Compare & export */}
-                  <div className="bd-panel cv-compare">
-                    <div className="cv-table">
-                      <div className="thead">
-                        <span>Provider</span>
-                        <span>Negotiated</span>
-                        <span>Cash</span>
-                        <span>Range</span>
-                      </div>
-                      <div className="trow">
-                        <span>Riverside Med Center</span>
-                        <span>$2,880</span>
-                        <span>$2,400</span>
-                        <span className="spark">
-                          <svg
-                            viewBox="0 0 100 24"
-                            preserveAspectRatio="none"
-                            aria-hidden="true"
-                          >
-                            <polyline points="0,20 20,18 40,14 60,10 80,8 100,6" />
-                          </svg>
-                        </span>
-                      </div>
-                      <div className="trow">
-                        <span>Northside Ortho</span>
-                        <span>$3,120</span>
-                        <span>$2,650</span>
-                        <span className="spark">
-                          <svg viewBox="0 0 100 24">
-                            <polyline points="0,16 20,17 40,13 60,12 80,9 100,8" />
-                          </svg>
-                        </span>
-                      </div>
-                      <div className="trow">
-                        <span>Mercy General</span>
-                        <span>$2,740</span>
-                        <span>$2,200</span>
-                        <span className="spark">
-                          <svg viewBox="0 0 100 24">
-                            <polyline points="0,22 20,19 40,17 60,14 80,12 100,9" />
-                          </svg>
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="cv-footer">
-                      <button className="cv-ghost">Export CSV</button>
-                      <span className="note">
-                        No PHI · CMS public files only
-                      </span>
-                    </div>
-                  </div>
+              className="pf-demo pf-demo--basic"
+              data-demo="basic"
+              data-speed="90"
+            >
+              <div className="bd-track">
+                <div className="bd-panel">
+                  <img
+                    src={bureau1}
+                    alt="bureau"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div className="bd-panel">
+                  <img
+                    src={bureau2}
+                    alt="bureau"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </div>
+            </div>
             )}
             {p.id === 4 && (
               <div
@@ -721,7 +581,7 @@ export default function Portfolio() {
                 <div className="bd-track">
                   <div className="bd-panel">
                     <img
-                      src={panorama1}
+                      src={boulangerieA}
                       alt="Gallery room — wall of artworks"
                       loading="lazy"
                       decoding="async"
@@ -729,7 +589,7 @@ export default function Portfolio() {
                   </div>
                   <div className="bd-panel">
                     <img
-                      src={panorama2}
+                      src={boulangerieB}
                       alt="Artwork detail — zoom & metadata overlay"
                       loading="lazy"
                       decoding="async"
@@ -737,8 +597,50 @@ export default function Portfolio() {
                   </div>
                   <div className="bd-panel">
                     <img
-                      src={panorama3}
+                      src={boulangerieC}
                       alt="Minimap and room navigation"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className="bd-panel">
+                    <img
+                      src={boulangerieD}
+                      alt="Minimap and room navigation"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
+            {p.id === 5 && (
+              <div
+                className="pf-demo pf-demo--pano"
+                data-demo="pano"
+                data-speed="86"
+              >
+                <div className="bd-track">
+                  <div className="bd-panel">
+                    <img
+                      src={hallA}
+                      alt="Hall"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className="bd-panel">
+                    <img
+                      src={hallB}
+                      alt="Hall"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className="bd-panel">
+                    <img
+                      src={hallC}
+                      alt="Hall"
                       loading="lazy"
                       decoding="async"
                     />

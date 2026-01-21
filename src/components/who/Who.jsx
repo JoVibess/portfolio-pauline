@@ -2,11 +2,11 @@ import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./Who.css";
-import xai from "../../assets/xai.svg";
-import robot from "../../assets/robot.png";
+import plan from "../../assets/plan.webp";
+import lit from "../../assets/lit.webp";
 import cervin from "../../assets/cervin.webp";
 import tronc from "../../assets/tronc.webp";
-import openai from "../../assets/openai.svg";
+import adobe from "../../assets/adobe.webp";
 import troisDS from "../../assets/3ds-max.png";
 import autocad from "../../assets/autocad.png";
 import chamois from "../../assets/chamois.webp";
@@ -489,7 +489,7 @@ export default function Who() {
             </svg>
           </section>
 
-          {/* P1 — xAI + tête de robot */}
+          {/* P1 — plan + tête de lit */}
           <section className="panel p1">
             <div className="panel-copy">
               <h2 className="panel-hl">Entre concept et réalité.</h2>
@@ -502,15 +502,15 @@ export default function Who() {
             <div className="stickers">
               <img
                 className="sticker s1"
-                alt="xAI logo"
-                src={xai}
+                alt="plan"
+                src={plan}
                 loading="lazy"
                 decoding="async"
               />
               <img
                 className="sticker s2"
-                alt="robot head"
-                src={robot}
+                alt="lit"
+                src={lit}
                 loading="lazy"
                 decoding="async"
               />
@@ -543,8 +543,8 @@ export default function Who() {
               />
               <img
                 className="sticker s3"
-                alt="OpenAI"
-                src={openai}
+                alt="adobe"
+                src={adobe}
                 loading="lazy"
                 decoding="async"
               />
