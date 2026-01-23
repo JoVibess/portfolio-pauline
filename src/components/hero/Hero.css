@@ -87,7 +87,7 @@
   left: 50%;
   /* Centre l’image horizontalement en l’ancrant en bas */
   transform: translateX(-50%);
-  height: 80vh;
+  height: 83vh;
   width: auto;
   max-height: 90vh;
   z-index: 2;

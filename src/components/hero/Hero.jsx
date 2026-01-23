@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import profileImg from '../../assets/silhouette-de-femme.png';
+import profileImg from '../../assets/pauline-home.webp';
 import './Hero.css';
 
 export default function Hero() {
