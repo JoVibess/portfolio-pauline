@@ -136,6 +136,9 @@
 .pf-brand--solo {
   height: clamp(22px, 4.8vw, 40px);
 }
+.pf-brand--hotel {
+  height: 100px;
+}
 
 /* Body */
 .pf-copy {

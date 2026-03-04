@@ -2,7 +2,8 @@ import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./Portfolio.css";
-import basicLogo from "../../assets/cern-logo.png";
+import logoCern from "../../assets/cern-logo.png";
+import logoHotel from "../../assets/logo-hotel-du-parc.png";
 import cern1 from "../../assets/cern-a.webp";
 import cern2 from "../../assets/cern-b.webp";
 import cern3 from "../../assets/cern-c.webp";
@@ -12,6 +13,11 @@ import chambre2 from "../../assets/chambre-b.webp";
 import chambre3 from "../../assets/chambre-c.webp";
 import chambre4 from "../../assets/chambre-d.webp";
 import chambre5 from "../../assets/chambre-e.webp";
+import hotel1 from "../../assets/hotel-1.webp";
+import hotel2 from "../../assets/hotel-2.webp";
+import hotel3 from "../../assets/hotel-3.webp";
+import hotel4 from "../../assets/hotel-4.webp";
+import hotel5 from "../../assets/hotel-5.webp";
 import bureau1 from "../../assets/bureau-a.webp";
 import bureau2 from "../../assets/bureau-b.webp";
 import boulangerieA from "../../assets/boulangerie-a.webp";
@@ -66,8 +72,19 @@ const LiveIcon = () => (
 const PROJECTS = [
   {
     id: 1,
+    title: "Hotel du Parc des Eaux-Vives",
+    brand: logoHotel,
+    brandAlt: "Hotel du Parc des Eaux-Vives",
+    brandAsTitle: false,
+    copy: "",
+    color: "#06331D",
+    repo: portfolioPdf,
+    demo: null,
+  },
+  {
+    id: 2,
     title: "Stand du CERN",
-    brand: basicLogo,
+    brand: logoCern,
     brandAlt: "CERN",
     brandAsTitle: false,
     copy: "Ce projet réalisé en binôme a pour objectif de faire découvrir le CERN au-delà de son image mystérieuse. Le stand met en avant la collaboration internationale et la diversité des savoirs qui le composent. Les espaces circulaires entrelacés symbolisent les différentes orientations du CERN et leurs liens. La circulation immersive invite les visiteurs à explorer le stand et à découvrir de nouvelles perspectives.",
@@ -76,7 +93,7 @@ const PROJECTS = [
     demo: null,
   },
   {
-    id: 2,
+    id: 3,
     title: "Chambre parentale",
     copy: "Ce projet consiste en la conception d’une chambre parentale avec un dressing et une tête de lit sur mesure. Inspiré du style cottage anglais, la chambre est pensée pour un jeune couple d’entrepeneur britannique. Le meuble du dressing se divise en deux espaces distincts, l’un pour Madame, et l’autre pour Monsieur. Ce dressing allie fonctionnalité et organisation, tout en s’intégrant harmonieusement dans une ambiance chaleureuse et intemporelle.",
     color: "#4B69A6",
@@ -85,7 +102,7 @@ const PROJECTS = [
   },
 
   {
-    id: 3,
+    id: 4,
     title: "Desk d’accueil",
     brandAsTitle: false,
     copy: "Pour ce projet, nous avions le choix de choisir une marque et de créer son desk d’accueil pour leur boutique. La marque que j’ai décidé de représenter est Maje. C’est une marque raffinée et élégante pour les femmes. Le desk est positionné au coeur de la boutique avec 2 espaces de travail pour être le point central permettant d’être accessible de n’importe quel endroit où nous nous trouvons. ",
@@ -95,7 +112,7 @@ const PROJECTS = [
   },
 
   {
-    id: 4,
+    id: 5,
     title: "Boulangerie Tea-room",
     brandAsTitle: false,
     copy: "Mon concept est autour du thé, je suis parti de l’origine du thé, lorsqu’une feuille tombe dans de l’eau chaude. Mon but était de faire un lieu agréable et permettant de se détendre avec une tasse de thé afin de faire une parenthèse dans sa journée. ",
@@ -105,7 +122,7 @@ const PROJECTS = [
   },
 
   {
-    id: 5,
+    id: 6,
     title: "Hall d’entrée",
     brandAsTitle: false,
     copy: "Lors de mon stage chez bulthaup, j’ai participé à un projet d’aménagement d’une maison en travaillant sur l’agencement de l’entrée. L’objectif était de créer une séparation visuelle avec le séjour grâce à une cloison intégrant des rangements côté entrée et des étagères côté séjour. J’ai réalisé les plans et les élévations de l’ensemble.",
@@ -416,7 +433,7 @@ export default function Portfolio() {
                 <img
                   className={`pf-brand ${
                     p.brandAsTitle ? "pf-brand--solo" : ""
-                  }`}
+                  } ${p.id === 1 ? "pf-brand--hotel" : ""}`}
                   src={p.brand}
                   alt={p.brandAsTitle ? p.brandAlt || p.title : ""}
                   aria-hidden={p.brandAsTitle ? "false" : "true"}
@@ -463,6 +480,56 @@ export default function Portfolio() {
                 <div className="bd-track">
                   <div className="bd-panel">
                     <img
+                      src={hotel1}
+                      alt="hotel du parc"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className="bd-panel">
+                    <img
+                      src={hotel2}
+                      alt="hotel du parc"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className="bd-panel">
+                    <img
+                      src={hotel3}
+                      alt="hotel du parc"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className="bd-panel">
+                    <img
+                      src={hotel4}
+                      alt="hotel du parc"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className="bd-panel">
+                    <img
+                      src={hotel5}
+                      alt="hotel du parc"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
+            {p.id === 2 && (
+              <div
+                className="pf-demo pf-demo--basic"
+                data-demo="basic"
+                data-speed="90"
+              >
+                <div className="bd-track">
+                  <div className="bd-panel">
+                    <img
                       src={cern1}
                       alt="cern"
                       loading="lazy"
@@ -496,7 +563,7 @@ export default function Portfolio() {
                 </div>
               </div>
             )}
-            {p.id === 2 && (
+            {p.id === 3 && (
               <div
               className="pf-demo pf-demo--basic"
               data-demo="basic"
@@ -546,7 +613,7 @@ export default function Portfolio() {
               </div>
             </div>
             )}
-            {p.id === 3 && (
+            {p.id === 4 && (
               <div
               className="pf-demo pf-demo--basic"
               data-demo="basic"
@@ -572,7 +639,7 @@ export default function Portfolio() {
               </div>
             </div>
             )}
-            {p.id === 4 && (
+            {p.id === 5 && (
               <div
                 className="pf-demo pf-demo--pano"
                 data-demo="pano"
@@ -614,7 +681,7 @@ export default function Portfolio() {
                 </div>
               </div>
             )}
-            {p.id === 5 && (
+            {p.id === 6 && (
               <div
                 className="pf-demo pf-demo--pano"
                 data-demo="pano"
